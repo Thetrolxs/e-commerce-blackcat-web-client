@@ -8,4 +8,4 @@ const ApiBackend = axios.create({
     withCredentials: true,
 
 })
-export default ApiBackend;
+export {ApiBackend};
