@@ -1,10 +1,10 @@
 export default function Navbar() {
   return (
-    <header className="w-full bg-black text-white px-4 py-3 flex flex-wrap items-center justify-between gap-4 shadow-md">
+    <header className="sticky top-0 z-50 w-full bg-black text-white px-4 py-3 flex flex-wrap items-center justify-between gap-4 shadow-md transition-transform duration-300 "id="navbar">
       {/* Logo */}
       <div className="flex items-center gap-2 flex-shrink-0">
         <img src="/logo-gato.png" alt="BLACKCAT" className="h-12 w-12" />
-        <span className="text-xl font-bold tracking-wide">BLACKCAT</span>
+        <span className="text-xl font-bold hidden sm:inline">BLACKCAT</span>
       </div>
 
       {/* Buscador */}
