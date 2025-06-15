@@ -14,7 +14,7 @@ export const ProductCard = ({ product, onClick } : ProductCardProps) => {
 
         {/* Imagen */}
         <div className="cursor-pointer w-full aspect-square bg-white rounded mb-3 flex items-center justify-center overflow-hidden" onClick={onClick}>
-            <Image src="/Producto.png" alt={product.name} width={250} height={200} className="object-contain max-h-full" />
+            <Image src="/Producto.png" alt={product.name} width={400} height={400} className="object-contain max-h-full " priority />
         </div>
 
         {/* Título y precio */}
