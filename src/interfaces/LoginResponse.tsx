@@ -1,4 +1,3 @@
-// interface LoginResponse
 export interface LoginResponse {
   firtsName: string;
   lastName: string;
