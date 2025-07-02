@@ -9,12 +9,14 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product, onClick } : ProductCardProps) => {
+
+    const imageUrl = Array.isArray(product.urls) && product.urls.length > 0? product.urls[0]: "/Producto.png";
     return (
         <div className="bg-gray-100 rounded-lg shadow p-4 w-full flex flex-col items-center text-sm min-h-[100px] hover:shadow-lg transition" >
 
         {/* Imagen */}
         <div className="cursor-pointer w-full aspect-square bg-white rounded mb-3 flex items-center justify-center overflow-hidden" onClick={onClick}>
-            <Image src="/Producto.png" alt={product.name} width={400} height={400} className="object-contain max-h-full " priority />
+            <Image src= {imageUrl} alt={product.name} width={400} height={400} className="object-contain max-h-full " priority />
         </div>
 
         {/* Título y precio */}

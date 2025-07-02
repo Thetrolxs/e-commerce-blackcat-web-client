@@ -3,6 +3,8 @@ import { Product } from "@/interfaces/Product";
 import { ResponseAPI } from "@/interfaces/ResponseAPI";
 
 export interface ProductFilters {
+  pageNumber?: number; 
+  pageSize?: number;
   category?: string;
   minPrice?: number;
   maxPrice?: number;
