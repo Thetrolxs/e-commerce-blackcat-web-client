@@ -12,7 +12,7 @@ export default function ViewProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   useEffect(() => {
     fetchProducts();
-  }, [filters]);
+  }, [fetchProducts, filters]);
 
   if (loading) {
     return (
@@ -24,7 +24,6 @@ export default function ViewProductsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
       {/* Línea de título y botón */}
       <div className="w-full bg-white border-b px-6 sm:px-6 py-3 sm:py-4 shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between">

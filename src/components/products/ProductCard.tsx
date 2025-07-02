@@ -1,7 +1,5 @@
 import { Product } from "@/interfaces/Product";
 import Image from "next/image";
-// Update the import path below if your Button component is located elsewhere
-import { Button } from "@/components/ui/button";
 
 interface ProductCardProps {
   product: Product;

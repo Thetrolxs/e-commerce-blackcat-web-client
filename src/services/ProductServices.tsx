@@ -1,4 +1,4 @@
-import { ApiBackend } from "@/clients/axios";
+import { ApiBackend } from "@/services/axios";
 import { Product } from "@/interfaces/Product";
 import { ResponseAPI } from "@/interfaces/ResponseAPI";
 
@@ -11,7 +11,7 @@ export interface ProductFilters {
 
 export const ProductServices = {
   async fetchProducts(filters: ProductFilters) {
-    const { data } = await ApiBackend.get<ResponseAPI>("/Product", {
+    const { data } = await ApiBackend.get<ResponseAPI<Product[]>>("/Product", {
       params: filters,
     });
     console.log("Datos obtenidos:", data);

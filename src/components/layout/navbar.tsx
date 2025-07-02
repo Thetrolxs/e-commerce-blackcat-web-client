@@ -1,3 +1,7 @@
+"use client";
+
+import Image from "next/image";
+
 export default function Navbar() {
   return (
     <header
@@ -6,7 +10,13 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div className="flex items-center gap-2 flex-shrink-0">
-        <img src="/logo-gato.png" alt="BLACKCAT" className="h-12 w-12" />
+        <Image
+          src="/blackcat-logo.png"
+          alt="BLACKCAT"
+          width={48}
+          height={48}
+          className="h-12 w-12"
+        />
         <span className="text-xl font-bold hidden sm:inline">BLACKCAT</span>
       </div>
 
@@ -23,17 +33,29 @@ export default function Navbar() {
       <div className="flex items-center gap-4 flex-shrink-0">
         <button
           title="Cuenta"
-          onClick={() => (window.location.href = "/cuenta")}
+          onClick={() => (window.location.href = "/login")}
           className="cursor-pointer hover:scale-105 transition-transform"
         >
-          <img src="/icono-user.png" alt="Usuario" className="h-10 w-10" />
+          <Image
+            src="/icono-user.png"
+            alt="Usuario"
+            width={48}
+            height={48}
+            className="h-10 w-10"
+          />
         </button>
         <button
           title="Carrito"
           onClick={() => (window.location.href = "/carrito")}
           className="cursor-pointer hover:scale-105 transition-transform"
         >
-          <img src="/icono-carro.png" alt="Carrito" className="h-10 w-10" />
+          <Image
+            src="/icono-carro.png"
+            alt="Carrito"
+            width={48}
+            height={48}
+            className="h-10 w-10"
+          />
         </button>
       </div>
     </header>
