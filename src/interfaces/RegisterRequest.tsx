@@ -1,5 +1,9 @@
 import { z } from "zod";
 
+const today = new Date();
+const thirteenYearsAgo = new Date();
+thirteenYearsAgo.setFullYear(today.getFullYear() - 13); // Calculate the date 13 years ago
+
 export const registerSchema = z
   .object({
     firtsName: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -20,7 +24,22 @@ export const registerSchema = z
 
     confirmPassword: z.string(),
 
-    birthday: z.string().optional(),
+    birthDate: z
+      .string()
+      .regex(/^\d{4}-\d{2}-\d{2}$/, "El formato de fecha debe ser AAAA-MM-DD") // New regex for YYYY-MM-DD
+      .refine(
+        (val) => {
+          const date = new Date(val);
+          return (
+            !isNaN(date.getTime()) && date < today && date <= thirteenYearsAgo
+          );
+        },
+        {
+          message:
+            "Debe ser mayor de 13 años y la fecha debe ser anterior a hoy",
+        }
+      )
+      .optional(),
     street: z.string().optional(),
     number: z.string().optional(),
     commune: z.string().optional(),
