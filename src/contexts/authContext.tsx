@@ -9,6 +9,7 @@ import { authClient } from "@/services/authClient";
 import { LoginRequest } from "@/interfaces/LoginRequest";
 import { RegisterRequest } from "@/interfaces/RegisterRequest";
 import { LoginResponse } from "@/interfaces/LoginResponse";
+import { RegisterResponse } from "@/interfaces/RegisterResponse";
 
 interface AuthContextType {
   user: LoginResponse | null;
@@ -59,7 +60,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const register = async (data: RegisterRequest) => {
     try {
-      const res = await authClient.register(data);
+      const res = (await authClient.register(data)) as {
+        success: boolean;
+        message?: string;
+        data?: RegisterResponse & { token: string };
+      };
 
       if (!res.success || !res.data) {
         throw new Error(res.message ?? "Error al registrarse");
@@ -69,9 +74,19 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       Cookies.set("user", JSON.stringify(res.data));
 
       setToken(res.data.token);
-      setUser(res.data);
 
-      toast.success(`Registro exitoso. Bienvenido, ${res.data.firtsName}`);
+      //Mapeo de register
+      const userToStore: LoginResponse = {
+        firtsName: res.data.firstName,
+        lastName: res.data.lastName,
+        email: res.data.email,
+        token: res.data.token,
+      };
+
+      Cookies.set("user", JSON.stringify(userToStore), { expires: 7 });
+      setUser(userToStore);
+
+      toast.success(`Registro exitoso. Bienvenido, ${res.data.firstName}`);
       router.push("/");
     } catch (error: any) {
       toast.error("Error al registrarse", {
