@@ -11,7 +11,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com"
       }
-    ]
+      
+    ],
+    domains: ["res.cloudinary.com", "localhost"],
+      
   }
 };
 
