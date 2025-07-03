@@ -3,12 +3,15 @@ import { Product } from "@/interfaces/Product";
 import { ResponseAPI } from "@/interfaces/ResponseAPI";
 
 export interface ProductFilters {
-  pageNumber?: number; 
-  pageSize?: number;
+  pageNumber: number;
+  pageSize: number;
+  search?: string;
   category?: string;
+  brand?: string;
   minPrice?: number;
   maxPrice?: number;
-  search?: string;
+  orderBy?: string;
+  condition?: number;
 }
 
 export const ProductServices = {
