@@ -5,17 +5,16 @@ import { useProductStore } from "@/stores/ProductStore";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ProductCard } from "@/components/products/ProductCard";
-import Navbar from "@/components/layout/navbar";
 import { ProductDialog } from "@/components/products/ProductDialog";
 import { ProductFiltersDrawer } from "@/components/products/ProductFiltersDrawer";
 
 export default function ViewProductsPage() {
-  const { products, loading, fetchProducts, filters, error } =
-    useProductStore();
+  const { products, loading, fetchProducts, error } = useProductStore();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const router = useRouter();
   useEffect(() => {
     fetchProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
