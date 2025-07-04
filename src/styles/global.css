@@ -1,9 +1,0 @@
-.sonner-toast[data-styled][data-type="success"] {
-  background-color: rgb(var(--success-background));
-  color: rgb(var(--success-foreground));
-}
-
-.sonner-toast[data-styled][data-type="error"] {
-  background-color: rgb(var(--error-background));
-  color: rgb(var(--error-foreground));
-}
