@@ -6,7 +6,9 @@ export function convertFormToParams(form: any) {
   return { ...form };
 }
 
-export function convertUrlToParams(searchParams: URLSearchParams): Record<string, string> {
+export function convertUrlToParams(
+  searchParams: URLSearchParams
+): Record<string, string> {
   const obj: Record<string, string> = {};
   searchParams.forEach((value, key) => {
     obj[key] = value;

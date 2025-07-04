@@ -1,14 +1,23 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useCallback } from 'react';
-import { useForm } from 'react-hook-form';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect, useRef, useCallback } from "react";
+import { useForm } from "react-hook-form";
+import { useRouter, useSearchParams } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { convertParamsToForm, convertFormToParams, convertParamsToUrl, convertUrlToParams } from '@/lib/url';
-import { ProductFiltersForm, productFiltersSchema, ProductParamsRequest } from '@/models/product-filters';
-import { ProductServices } from '@/services/ProductServices';
-import { useProductStore } from '@/stores/ProductStore';
+import {
+  convertParamsToForm,
+  convertFormToParams,
+  convertParamsToUrl,
+  convertUrlToParams,
+} from "@/utils/url";
+import {
+  ProductFiltersForm,
+  productFiltersSchema,
+  ProductParamsRequest,
+} from "@/models/product-filters";
+import { ProductServices } from "@/services/ProductServices";
+import { useProductStore } from "@/stores/ProductStore";
 
 export const useProducts = () => {
   const router = useRouter();
@@ -127,7 +136,7 @@ export const useProducts = () => {
     availableFilters,
     form,
     isLoading: false, // puedes agregar estado de carga si lo manejas tú
-    isError: false,   // igual para errores
+    isError: false, // igual para errores
     error: null,
 
     updateFilters,
