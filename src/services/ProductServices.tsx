@@ -32,3 +32,8 @@ export const ProductServices = {
     return data.data as Product[];
   },
 };
+
+export async function getProductById(id: number): Promise<Product> {
+  const response = await ApiBackend.get(`/Product/${id}`);
+  return response.data;
+}
