@@ -2,6 +2,7 @@
 
 import { useCart } from '@/contexts/cartContext';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
 export default function CarritoPage() {
@@ -12,6 +13,10 @@ export default function CarritoPage() {
     decreaseQuantity,
   } = useCart();
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {setMounted(true);}, []);
+  if (!mounted) return null;
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleIncrease = (itemId: number, currentQty: number, stock?: number) => {
@@ -101,3 +106,4 @@ export default function CarritoPage() {
     </main>
   );
 }
+
