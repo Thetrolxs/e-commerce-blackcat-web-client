@@ -20,10 +20,23 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("cart");
-      return stored ? JSON.parse(stored) : [];
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          return parsed.map((item: any) => ({
+            ...item,
+            price: Number(item.price), // 👈 fuerza que sea número
+            quantity: Number(item.quantity),
+          }));
+        } catch (error) {
+          console.error("Error al parsear el carrito:", error);
+          return [];
+        }
+      }
     }
     return [];
   });
+
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
