@@ -1,28 +1,30 @@
-'use client';
+"use client";
 
-import { useCart } from '@/contexts/cartContext';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { toast } from 'sonner';
+import { useCart } from "@/contexts/cartContext";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export default function CarritoPage() {
-  const {
-    cart,
-    removeFromCart,
-    increaseQuantity,
-    decreaseQuantity,
-  } = useCart();
+  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
+    useCart();
 
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {setMounted(true);}, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   if (!mounted) return null;
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  const handleIncrease = (itemId: number, currentQty: number, stock?: number) => {
+  const handleIncrease = (
+    itemId: number,
+    currentQty: number,
+    stock?: number
+  ) => {
     if (stock && currentQty >= stock) {
-      toast.error('No hay más stock disponible', {
-        position: 'top-right',
+      toast.error("No hay más stock disponible", {
+        position: "top-right",
       });
       return;
     }
@@ -43,7 +45,7 @@ export default function CarritoPage() {
               className="flex items-center gap-4 p-4 bg-gray-100 rounded shadow"
             >
               <Image
-                src={item.urls?.[0] || '/placeholder.jpg'}
+                src={item.urls?.[0] || "/placeholder.jpg"}
                 alt={item.name}
                 width={64}
                 height={64}
@@ -76,7 +78,7 @@ export default function CarritoPage() {
               </div>
               <button
                 onClick={() => removeFromCart(item.id!)}
-                className="text-red-500 hover:text-red-700 text-xl"
+                className="flex items-center gap-2 flex-shrink-0 cursor-pointer hover:scale-105 transition-transform"
               >
                 🗑️
               </button>
@@ -106,4 +108,3 @@ export default function CarritoPage() {
     </main>
   );
 }
-
