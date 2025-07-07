@@ -45,7 +45,7 @@ export default function CarritoPage() {
               className="flex items-center gap-4 p-4 bg-gray-100 rounded shadow"
             >
               <Image
-                src={item.urls?.[0] || "/placeholder.jpg"}
+                src={item.urls?.[0] || "/blackcat-logo.png"}
                 alt={item.name}
                 width={64}
                 height={64}
