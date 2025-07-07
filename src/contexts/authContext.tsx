@@ -43,8 +43,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         throw new Error(res.message ?? "Credenciales inválidas");
       }
 
-      Cookies.set("token", res.data.token, { expires: 7 });
-      Cookies.set("user", JSON.stringify(res.data), { expires: 7 });
+      Cookies.set("token", res.data.token, { expires: 1 });
+      Cookies.set("user", JSON.stringify(res.data), { expires: 1 });
 
       setToken(res.data.token);
       setUser(res.data);
@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         token: res.data.token,
       };
 
-      Cookies.set("user", JSON.stringify(userToStore), { expires: 7 });
+      Cookies.set("user", JSON.stringify(userToStore), { expires: 1 });
       setUser(userToStore);
 
       toast.success(`Registro exitoso. Bienvenido, ${res.data.firstName}`);
