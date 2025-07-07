@@ -9,16 +9,22 @@ export default function Navbar() {
       id="navbar"
     >
       {/* Logo */}
-      <div className="flex items-center gap-2 flex-shrink-0">
-        <Image
-          src="/blackcat-logo.png"
-          alt="BLACKCAT"
-          width={48}
-          height={48}
-          className="h-12 w-12"
-        />
-        <span className="text-xl font-bold hidden sm:inline">BLACKCAT</span>
-      </div>
+      <div
+      title="Ir al catálogo"
+      onClick={() => (window.location.href = "/")}
+      className="flex items-center gap-2 flex-shrink-0 cursor-pointer hover:scale-105 transition-transform"
+    >
+      <Image
+        src="/blackcat-logo.png"
+        alt="BLACKCAT"
+        width={48}
+        height={48}
+        className="h-12 w-12"
+      />
+      <span className="text-xl font-bold hidden sm:inline">BLACKCAT</span>
+    </div>
+
+      
 
       {/* Buscador */}
       <div className="flex-1 flex justify-center w-full sm:w-auto">
@@ -46,7 +52,7 @@ export default function Navbar() {
         </button>
         <button
           title="Carrito"
-          onClick={() => (window.location.href = "/carrito")}
+          onClick={() => (window.location.href = "/cart")}
           className="cursor-pointer hover:scale-105 transition-transform"
         >
           <Image
