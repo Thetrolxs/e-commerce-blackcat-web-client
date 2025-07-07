@@ -32,6 +32,8 @@ ApiBackend.interceptors.response.use(
 
     if (status === 403) {
       alert("No tienes permisos para esta acción");
+      Cookies.remove("token");
+      Cookies.remove("user");
       window.location.href = "/";
     }
 
