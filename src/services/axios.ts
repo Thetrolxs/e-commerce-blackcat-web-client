@@ -32,6 +32,7 @@ ApiBackend.interceptors.response.use(
 
     if (status === 403) {
       alert("No tienes permisos para esta acción");
+      window.location.href = "/";
     }
 
     if (status === 500) {
