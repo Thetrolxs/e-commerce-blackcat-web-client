@@ -1,32 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🐈‍⬛ BLACKCAT - Plataforma de Gestión de Usuario
 
-## ⚙️ Cómo ejecutar el proyecto
+Sistema web desarrollado con **Next.js**, enfocado en la compra y gestión de productos, autenticación de usuarios, edición de perfil, control de sesión con JWT y navegación segura por roles. Cumple con arquitectura modular, principios de diseño limpio, responsividad y centralización de servicios.
 
-### Clonar el repositorio
+---
+
+## 📦 Tecnologías Utilizadas
+
+- ✅ **Next.js**
+- ✅ **TypeScript**
+- ✅ **TailwindCSS**
+- ✅ **Shadcn**
+- ✅ **React Hook Form + Zod**
+- ✅ **Axios + Interceptors**
+- ✅ **Cookies**
+
+---
+
+## 🚀 Instalación y Ejecución
+
+### 1. Clonar repositorio
 
 ```bash
 git clone https://github.com/Thetrolxs/e-commerce-blackcat-web-client.git
 cd e-commerce-blackcat-web-client
 ```
 
-### Agregar el .env
+### 2. Instalar dependencias
+```bash
+npm install
+# o
+yarn install
+```
+### 3. Configurar entorno local
+Crear archivo .env.local:
+```bash
+env
+NEXT_PUBLIC_API_BACKEND_URL=
+```
+Archivo de ejemplo provisto: .env.example
 
-NEXT_PUBLIC_API_URL=""
-DOMAIN=""
-
-### Iniciar el proyecto
+### 4. Ejecutar servidor de desarrollo
 ```bash
 npm run dev
+# o
+yarn dev
 ```
-
-
-La API se iniciará en `https://localhost:7195/` según lo definido en `appsettings.json`.
-
----
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+La app estará disponible en: http://localhost:3000
 
 ## 🧑‍💻 Autores
 
