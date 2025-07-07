@@ -3,16 +3,28 @@
 import { Product } from "@/interfaces/Product";
 import { useProductStore } from "@/stores/ProductStore";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { ProductCard } from "@/components/products/ProductCard";
-import Navbar from "@/components/layout/navbar";
 import { ProductDialog } from "@/components/products/ProductDialog";
+import { ProductFiltersDrawer } from "@/components/products/ProductFiltersDrawer";
 
 export default function ViewProductsPage() {
-  const { products, loading, fetchProducts, filters } = useProductStore();
+  const { products, loading, fetchProducts, error } = useProductStore();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const router = useRouter();
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts, filters]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (
+      error?.includes("Error al obtener los productos") ||
+      error?.includes("No se encontraron productos")
+    ) {
+      router.push("/");
+    }
+  }, [error, router]);
 
   if (loading) {
     return (
@@ -30,14 +42,7 @@ export default function ViewProductsPage() {
           <h2 className="text-base sm:text-xl font-bold text-gray-800 tracking-tight">
             Catálogo
           </h2>
-          <button
-            onClick={() => {
-              console.log("Filtrar recomendados");
-            }}
-            className="text-sm sm:text-base text-blue-600 font-semibold hover:underline cursor-pointer transition-colors duration-200 rounded-full px-3 py-1.5 shadow-sm bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Filtros
-          </button>
+          <ProductFiltersDrawer />
         </div>
       </div>
 

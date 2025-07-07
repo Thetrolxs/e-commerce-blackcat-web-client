@@ -21,6 +21,11 @@ export const ProductDialog = ({
 }: ProductDialogProps) => {
   if (!product) return null;
 
+  const imageUrl =
+    Array.isArray(product.urls) && product.urls.length > 0
+      ? product.urls[0]
+      : "/Producto.png";
+
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent>
@@ -30,7 +35,7 @@ export const ProductDialog = ({
         </DialogHeader>
         <div className="flex flex-col items-center">
           <Image
-            src="/Producto.png"
+            src={imageUrl}
             alt={product.name}
             width={300}
             height={300}
