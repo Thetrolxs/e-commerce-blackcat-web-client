@@ -33,7 +33,7 @@ export default function Navbar() {
       <div className="flex items-center gap-4 flex-shrink-0">
         <button
           title="Cuenta"
-          onClick={() => (window.location.href = "/login")}
+          onClick={() => (window.location.href = "/profile")}
           className="cursor-pointer hover:scale-105 transition-transform"
         >
           <Image
