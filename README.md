@@ -1,6 +1,6 @@
 # 🐈‍⬛ BLACKCAT - Plataforma de Gestión de Usuario
 
-Sistema web desarrollado con **Next.js 14 (App Router)** y API RESTful en **.NET 9**, enfocado en autenticación de usuarios, edición de perfil, control de sesión con JWT y navegación segura por roles. Cumple con arquitectura modular, principios de diseño limpio, responsividad y centralización de servicios.
+Sistema web desarrollado con **Next.js**, enfocado en la compra y gestión de productos, autenticación de usuarios, edición de perfil, control de sesión con JWT y navegación segura por roles. Cumple con arquitectura modular, principios de diseño limpio, responsividad y centralización de servicios.
 
 ---
 
